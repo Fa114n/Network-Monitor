@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitor Nabi Younus</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+</head>
+<body>
+   <header>
+  <div class="header-left">
+    <h1>Network Monitor</h1>
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      LIVE
+    </div>
+  </div>
+  <div id="clock">--:--:--</div>
+</header>
+
+<div id="stats-bar">
+  <div class="stat-item">
+    <div class="stat-label">Data Sent</div>
+    <div class="stat-value" id="bytes-sent">--<span class="stat-unit">MB</span></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-label">Data Received</div>
+    <div class="stat-value" id="bytes-recv">--<span class="stat-unit">MB</span></div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-label">Packets Sent</div>
+    <div class="stat-value" id="pkts-sent">--</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-label">Packets Received</div>
+    <div class="stat-value" id="pkts-recv">--</div>
+  </div>
+</div>
+
+<main>
+  <div class="panel" id="ping-panel">
+    <div class="panel-header">Host Status</div>
+    <div class="panel-body" id="ping-grid"></div>
+  </div>
+
+  <div class="panel" id="interfaces-panel">
+    <div class="panel-header">Interfaces</div>
+    <div class="panel-body" id="interfaces-grid"></div>
+  </div>
+
+  <div class="panel" id="connections-panel">
+    <div class="panel-header">Active Connections</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Local</th>
+          <th>Remote</th>
+          <th>Status</th>
+          <th>PID</th>
+        </tr>
+      </thead>
+      <tbody id="connections-body"></tbody>
+    </table>
+  </div>
+</main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
